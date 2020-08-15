@@ -45,11 +45,23 @@ class ModeloBlog{
 
 	static public function mdlIngresarBlog($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(titulo, estado, descripcionlarga) VALUES (:titulo, :estado, :descripcionlarga)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_categoriablog, id_subcategoriablog, num_visitas, estrellas, fecha, title, description, keywords, descripcioncorta, titulo, ruta, estado, descripcionlarga, imagen, video) VALUES (:id_categoriablog, :id_subcategoriablog, :num_visitas, :estrellas, :fecha, :title, :description, :keywords, :descripcioncorta, :titulo, :ruta, :estado, :descripcionlarga, :imagen, :video)");
 
+		$stmt->bindParam(":id_categoriablog", $datos["id_categoriablog"], PDO::PARAM_STR);
+		$stmt->bindParam(":id_subcategoriablog", $datos["id_subcategoriablog"], PDO::PARAM_STR);
+		$stmt->bindParam(":num_visitas", $datos["num_visitas"], PDO::PARAM_STR);
+		$stmt->bindParam(":estrellas", $datos["estrellas"], PDO::PARAM_STR);
+		$stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+		$stmt->bindParam(":title", $datos["title"], PDO::PARAM_STR);
+		$stmt->bindParam(":description", $datos["description"], PDO::PARAM_STR);
+		$stmt->bindParam(":keywords", $datos["keywords"], PDO::PARAM_STR);
+		$stmt->bindParam(":descripcioncorta", $datos["descripcioncorta"], PDO::PARAM_STR);
 		$stmt->bindParam(":titulo", $datos["titulo"], PDO::PARAM_STR);
+		$stmt->bindParam(":ruta", $datos["ruta"], PDO::PARAM_STR);
 		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
 		$stmt->bindParam(":descripcionlarga", $datos["descripcionlarga"], PDO::PARAM_STR);
+		$stmt->bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
+		$stmt->bindParam(":video", $datos["video"], PDO::PARAM_STR);
 		
 		if($stmt->execute()){
 

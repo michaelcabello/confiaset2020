@@ -28,11 +28,91 @@ class ControladorBlog{
 		if(isset($_POST["tituloPost"]))
 		{
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["tituloPost"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcionCorta"]) ){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["tituloPost"]) && preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["descripcioncorta"]) ){
+
+
+				/*=============================================
+				VALIDAR IMAGEN DEL BLOG
+				=============================================*/
+
+				$rutaFotoBlog = "vistas/img/blog/default/default.jpg";
+
+				if(isset($_FILES["fotoblog"]["tmp_name"]) && !empty($_FILES["fotoblog"]["tmp_name"])){
+
+					/*=============================================
+					DEFINIMOS LAS MEDIDAS
+					=============================================*/
+
+					list($ancho, $alto) = getimagesize($_FILES["fotoblog"]["tmp_name"]);
+
+					$nuevoAncho = 500;
+					$nuevoAlto = 500;
+
+					/*=============================================
+					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+					=============================================*/	
+
+					if($_FILES["fotoblog"]["type"] == "image/jpeg"){
+
+						/*=============================================
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						=============================================*/
+
+						$rutaFotoBlog = "vistas/img/blog/".$_POST["rutapost"].".jpg";
+
+						$origen = imagecreatefromjpeg($_FILES["fotoblog"]["tmp_name"]);	
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagejpeg($destino, $rutaFotoBlog);
+
+					}
+
+					if($_FILES["fotoBlog"]["type"] == "image/png"){
+
+						/*=============================================
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						=============================================*/
+
+						$rutaFotoBlog = "vistas/img/blog/".$_POST["rutapost"].".png";
+
+						$origen = imagecreatefrompng($_FILES["fotoblog"]["tmp_name"]);						
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+						imagealphablending($destino, FALSE);
+    			
+    					imagesavealpha($destino, TRUE);
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagepng($destino, $rutaFotoBlog);
+
+					}
+
+
+				}	
+
+
+
 
 					$datos = array("titulo"=>$_POST["tituloPost"],
+								   "ruta"=>$_POST["rutapost"],
 								   "descripcionlarga"=>$_POST["editor1"],
-								   "estado"=> 1
+								   "estado"=> 1,
+								   "id_categoriablog"=>$_POST["seleccionarcategoriablog"],
+								   "id_subcategoriablog"=>$_POST["seleccionarsubcategoriablog"],
+								   "num_visitas"=>$_POST["numvisitas"],
+								   "estrellas"=>$_POST["numestrellas"],
+								   "fecha"=>$_POST["fecha"],
+								   "title"=>$_POST["titlepost"],
+								   "description"=>$_POST["descriptionpost"],
+								   "keywords"=>$_POST["keywordspost"],
+								   "descripcioncorta"=>$_POST["descripcioncorta"],
+								   "imagen"=>$rutaFotoBlog,
+								   "video"=>$_POST["videopost"]
 								   );
 
 					$respuesta = ModeloBlog::mdlIngresarBlog("blog", $datos);

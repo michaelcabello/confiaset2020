@@ -1,8 +1,6 @@
 <div class="content-wrapper" id="formularioregistros">
     <!-- Content Header (Page header) -->
 
-
-
     <section class="content-header">
       <h1>
         Ingreso de Post
@@ -49,7 +47,7 @@
 
                       </div>
                       <!--=====================================
-                      ENTRADA PARA LA RUTA DEL PPOST
+                      ENTRADA PARA LA RUTA DEL POST
                       ======================================-->
 
                       <div class="form-group">
@@ -58,7 +56,7 @@
                         
                             <span class="input-group-addon"><i class="fa fa-link"></i></span> 
 
-                            <input type="text" class="form-control input-lg rutaPost" placeholder="Ruta url del post" readonly>
+                            <input type="text" class="form-control input-lg rutaPost" name="rutapost" placeholder="Ruta url del post" readonly>
 
                           </div>
 
@@ -70,13 +68,13 @@
 
                     <div class="form-group col-md-6">
                       
-                       <div class="input-group">
+                      <div class="input-group">
                       
                           <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                          <select class="form-control input-lg seleccionarCategoriablog">
+                          <select class="form-control input-lg seleccionarCategoriablog" name="seleccionarcategoriablog" required>
 
-                              <option value="">Selecionar categoría del Blog</option>
+                              <option value="">Seleccionar categoría del Blog</option>
 
                               <?php
 
@@ -94,7 +92,7 @@
 
                           </select>
 
-                        </div>
+                      </div>
 
                     </div>
 
@@ -108,7 +106,7 @@
                       
                           <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                          <select class="form-control input-lg seleccionarSubCategoriablog">
+                          <select class="form-control input-lg seleccionarSubCategoriablog" name="seleccionarsubcategoriablog" required>
 
                           </select>
 
@@ -120,13 +118,13 @@
                     <!--=====================================
                     ENTRADA PARA NUMERO DE VISITAS
                     ======================================-->
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-6">
                       
                         <div class="input-group">
                       
                           <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                          <input type="text" class="form-control input-lg tituloPost"  placeholder="numero de visitas">
+                          <input type="text" class="form-control input-lg numvisitas" name="numvisitas"  placeholder="numero de visitas">
 
                         </div>
 
@@ -136,13 +134,13 @@
                     <!--=====================================
                     ENTRADA PARA ESTRELLAS
                     ======================================-->
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-6">
                       
                         <div class="input-group">
                       
                           <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                          <input type="text" class="form-control input-lg tituloPost"  placeholder="Ingresar estrellas">
+                          <input type="text" class="form-control input-lg numestrellas"  name="numestrellas" placeholder="Ingresar estrellas">
 
                         </div>
 
@@ -152,16 +150,22 @@
                     <!--=====================================
                     ENTRADA PARA FECHAS
                     ======================================-->
-                      <div class="form-group col-md-4">
-                      
-                        <div class="input-group">
-                      
-                          <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                          <input type="text" class="form-control input-lg tituloPost"  placeholder="Ingresar fecha">
 
-                        </div>
-
+                      <div class="form-group">
+                  
+                          <div class="input-group date">
+                                
+                            <input type='text' class="form-control datepicker input-lg valorOferta finOferta" name="fecha">
+                                
+                            <span class="input-group-addon">
+                                    
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                
+                            </span>
+                           
+                          </div>
+                        
                       </div>
 
                     <!--=====================================
@@ -173,7 +177,7 @@
                       
                           <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                          <input type="text" class="form-control input-lg tituloPost"  placeholder="Ingresar title">
+                          <input type="text" class="form-control input-lg titlePost"  name="titlepost" placeholder="Ingresar title">
 
                         </div>
 
@@ -189,7 +193,7 @@
                       
                           <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                          <input type="text" class="form-control input-lg tituloPost"  placeholder="Ingresar descriptiont">
+                          <input type="text" class="form-control input-lg descriptionPost"  name="descriptionpost" placeholder="Ingresar description">
 
                         </div>
 
@@ -204,7 +208,7 @@
                       
                           <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                          <input type="text" class="form-control input-lg tituloPost"  placeholder="Ingresar palabras claves">
+                          <input type="text" class="form-control input-lg keywordsPost"  name="keywordspost" placeholder="Ingresar palabras claves">
 
                         </div>
 
@@ -220,7 +224,7 @@
                         
                           <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
 
-                          <textarea type="text" maxlength="320" rows="3" class="form-control input-lg descripcionCorta" placeholder="Ingresar descripción corta del post" name="descripcionCorta"></textarea>
+                          <textarea type="text" maxlength="320" rows="3" class="form-control input-lg descripcionCorta" placeholder="Ingresar descripción corta del post" name="descripcioncorta"></textarea>
 
                         </div>
 
@@ -242,7 +246,7 @@
                         
                             <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                            <input type="text" class="form-control input-lg tituloPost"  placeholder="Ingresar ruta de viedo youtube">
+                            <input type="text" class="form-control input-lg videoPost"  name="videopost" placeholder="Ingresar ruta de viedo youtube">
 
                           </div>
 
@@ -250,18 +254,17 @@
 
 
                       <!--=====================================
-                      AGREGAR FOTO DE PORTADA
+                      AGREGAR FOTO DE BLOG
                       ======================================-->
 
                       <div class="form-group">
                         
-                        <div class="panel">SUBIR FOTO PORTADA</div>
+                        <div class="panel">SUBIR FOTO DEL BLOG</div>
+                        <input type="file" class="fotoBlog" name="fotoblog">
+                        
+                        <p class="help-block">Tamaño recomendado 500px * 500px <br> Peso máximo de la foto 2MB</p>
 
-                        <input type="file" class="fotoPortada">
-
-                        <p class="help-block">Tamaño recomendado 1280px * 720px <br> Peso máximo de la foto 2MB</p>
-
-                        <img src="vistas/img/cabeceras/default/default.jpg" class="img-thumbnail previsualizarPortada" width="100%">
+                        <img src="vistas/img/blog/default/default.jpg" class="img-thumbnail previsualizarFotoBlog" width="100%">
 
                       </div>
 

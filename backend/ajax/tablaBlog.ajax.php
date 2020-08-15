@@ -36,7 +36,10 @@ class TablaBlog{
 	 				"8"=>$rspta[$i]["keywords"],
 	 				"9"=>$rspta[$i]["imagen"],
 	 				"10"=>$rspta[$i]["fecha"],
-	 				"11"=>"<div class='btn-group'><button class='btn btn-warning btnEditarBlog' idBlog='".$rspta[$i]["id"]."'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarBlog' idBlog='".$rspta[$i]["id"]."' imgPortada='".$rspta[$i]["imagen"]."'  rutaCabecera='".$rspta[$i]["ruta"]."' imgOferta='".$rspta[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"
+	 				"11"=>"<div class='btn-group'>
+	 				
+	 				<button blogeditar class='btn btn-warning btnEditarBlog' onclick='mostrar()' idBlog='".$rspta[$i]["id"]."'><a href='blogeditar'><i class='fa fa-pencil'></i></a></button>
+	 				<button class='btn btn-danger btnEliminarBlog' idBlog='".$rspta[$i]["id"]."' imgPortada='".$rspta[$i]["imagen"]."'  rutaCabecera='".$rspta[$i]["ruta"]."' imgOferta='".$rspta[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"
 	 				);
 	 		}
 	 		$results = array(
