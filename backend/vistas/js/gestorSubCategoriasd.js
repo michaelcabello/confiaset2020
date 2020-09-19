@@ -227,6 +227,44 @@ $(".fotoTitulo1").change(function(){
   	}
 })
 
+/*=============================================
+REVISAR SI LA RUTA YA EXISTE
+=============================================*/
+
+$(".validarSubCategoriad").change(function(){
+
+	$(".alert").remove();
+
+	var subCategoria = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarSubCategoria", subCategoria);
+
+	 $.ajax({
+	    url:"ajax/subCategoriasd.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+	    	
+	    	// console.log("respuesta", respuesta);
+	    	
+	    	if(respuesta.length != 0){
+
+	    		$(".validarSubCategoriad").parent().after('<div class="alert alert-warning">Esta Subcategoría ya existe en la base de datos</div>');
+
+	    		$(".validarSubCategoriad").val("");
+
+	    	}
+
+	    }
+
+	})
+})
+
 
 /*=============================================
 REVISAR SI LA SUBCATEGORÍA YA EXISTE
@@ -420,7 +458,11 @@ $(".tablaSubCategoriasd tbody").on("click", ".btnEditarSubCategoria", function()
 			
 			=============================================*/
             $("#modalEditarSubCategoria .previsualizarPortadad").attr("src", respuesta[0]["imagenbaner"]);
+            $("#modalEditarSubCategoria .antiguaFotoPortadad").val(respuesta[0]["imagenbaner"]);
+
             $("#modalEditarSubCategoria .previsualizarTitulo1").attr("src", respuesta[0]["imagen1"]);
+            $("#modalEditarSubCategoria .antiguaFotoTitulo1").val(respuesta[0]["imagen1"]);
+
 			$("#modalEditarSubCategoria .titulo1").val(respuesta[0]["titulo1"]);
 			$("#modalEditarSubCategoria .descripcionTitulo1").val(respuesta[0]["descripcion1"]);
 

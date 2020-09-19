@@ -1,9 +1,9 @@
-<div class="content-wrapper" id="formularioregistros">
-    <!-- Content Header (Page header) -->
+<div class="content-wrapper" id="formeditarblog">
+    <!-- Content Header (Page headerR)F -->
 
     <section class="content-header">
       <h1>
-        Edición del Post
+        Edición del Postki
         <small>Contenidos del blog</small>
       </h1>
       <ol class="breadcrumb">
@@ -41,7 +41,9 @@
                       
                           <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                          <input type="text" class="form-control input-lg validarPost tituloPost" name="tituloPost" placeholder="Ingresar título del post">
+                          <input type="text" class="form-control input-lg validarPost tituloPostEditar" name="tituloPostEditar" placeholder="Ingresar título del post">
+
+                          <input type="hidden" class="idBlog">
 
                         </div>
 
@@ -56,7 +58,7 @@
                         
                             <span class="input-group-addon"><i class="fa fa-link"></i></span> 
 
-                            <input type="text" class="form-control input-lg rutaPost" name="rutapost" placeholder="Ruta url del post" readonly>
+                            <input type="text" class="form-control input-lg rutaPostEditar" name="rutapostEditar" placeholder="Ruta url del post" readonly>
 
                           </div>
 

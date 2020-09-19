@@ -16,9 +16,27 @@ class AjaxSubCategoriasblog{
 	TRAER SUBCATEGORIAS DE ACUERDO A LA CATEGORÍA
 	=============================================*/	
 
-	public $idCategoriablog;
+	public $idSubCategoriablog;
 
 	public function ajaxTraerSubCategoriablog(){
+
+		$item = "id";
+		$valor = $this->idSubCategoriablog;
+
+		$respuesta = ControladorSubCategoriasblog::ctrMostrarSubCategoriasblog($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+
+	/*=============================================
+	TRAER SUBCATEGORIAS DE ACUERDO A LA CATEGORÍA
+	=============================================*/	
+
+	public $idCategoriablog;
+
+	public function ajaxTraerSubCategoria(){
 
 		$item = "id_categoriablog";
 		$valor = $this->idCategoriablog;
@@ -29,17 +47,29 @@ class AjaxSubCategoriasblog{
 
 	}
 
+
 }//fin de la clase
 
 
+
+/*=============================================
+TRAER SUBCATEGORIAS 
+=============================================*/
+if(isset($_POST["idSubCategoriablog"])){
+
+	$traerSubCategoriablog = new AjaxSubCategoriasblog();
+	$traerSubCategoriablog -> idSubCategoriablog = $_POST["idSubCategoriablog"];
+	$traerSubCategoriablog -> ajaxTraerSubCategoriablog();
+
+}
 
 /*=============================================
 TRAER SUBCATEGORIAS DE ACUERDO A LA CATEGORÍA
 =============================================*/
 if(isset($_POST["idCategoriablog"])){
 
-	$traerSubCategoriablog = new AjaxSubCategoriasblog();
-	$traerSubCategoriablog -> idCategoriablog = $_POST["idCategoriablog"];
-	$traerSubCategoriablog -> ajaxTraerSubCategoriablog();
+	$traerSubCategoria = new AjaxSubCategoriasblog();
+	$traerSubCategoria -> idCategoriablog = $_POST["idCategoriablog"];
+	$traerSubCategoria -> ajaxTraerSubCategoria();
 
 }

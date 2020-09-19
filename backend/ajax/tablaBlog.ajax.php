@@ -38,9 +38,10 @@ class TablaBlog{
 	 				"10"=>$rspta[$i]["fecha"],
 	 				"11"=>"<div class='btn-group'>
 	 				
-	 				<button blogeditar class='btn btn-warning btnEditarBlog' onclick='mostrar()' idBlog='".$rspta[$i]["id"]."'><a href='blogeditar'><i class='fa fa-pencil'></i></a></button>
+	 				<button blogeditar class='btn btn-warning btnEditarBlog' idBlog='".$rspta[$i]["id"]."' onclick='mostrar()'><i class='fa fa-pencil'></i></button>
+
 	 				<button class='btn btn-danger btnEliminarBlog' idBlog='".$rspta[$i]["id"]."' imgPortada='".$rspta[$i]["imagen"]."'  rutaCabecera='".$rspta[$i]["ruta"]."' imgOferta='".$rspta[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"
-	 				);
+	 				);//otra forma de llamar en el boton es usando la etiqueta a dentro del botonnN 
 	 		}
 	 		$results = array(
 	 			"sEcho"=>1, //Información para el datatables

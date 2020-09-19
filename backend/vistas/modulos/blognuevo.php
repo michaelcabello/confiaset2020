@@ -264,7 +264,7 @@
                         
                         <p class="help-block">Tamaño recomendado 500px * 500px <br> Peso máximo de la foto 2MB</p>
 
-                        <img src="vistas/img/blog/default/default.jpg" class="img-thumbnail previsualizarFotoBlog" width="100%">
+                        <img src="vistas/img/blog/default/default.jpg" class="img-thumbnail previsualizarFotoBlog" width="400px">
 
                       </div>
 

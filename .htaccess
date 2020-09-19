@@ -6,4 +6,9 @@ Options All -Indexes
 
 RewriteEngine On
 
-RewriteRule ^([-a-zA-Z0-9ñÑ_/]+)$ index.php?ruta=$1
+#^([0-9]+)_([a-zA-Z0-9-]*)(.*)$
+#RewriteRule ^([0-9]+)\-([a-zA-Z0-9-]*)(.*)$ index.php?ruta=$1
+RewriteRule ^([-=a-zA-Z0-9ñÑ_/]+)$ index.php?ruta=$1
+
+#RewriteRule ^((?:[a-zA-Z0-9_-]|%20)+)/?$ index.php?ruta=$1
+

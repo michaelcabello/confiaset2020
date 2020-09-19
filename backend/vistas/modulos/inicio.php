@@ -9,14 +9,14 @@ PÁGINA DE INICIO
   <section class="content-header">
     
     <h1>
-    Tablero
-    <small>Panel de Control</small>
+    CONFIA
+    <small>Instituto Oftalmologico</small>
     </h1>
 
     <ol class="breadcrumb">
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      <li class="active">Tablero</li>
+      <li class="active">OftalmoConfia.com</li>
 
     </ol>
 
@@ -29,15 +29,8 @@ PÁGINA DE INICIO
     <!-- row -->
     <div class="row">
 
-       <?php
-
-        if($_SESSION["perfil"] == "administrador"){
-
-        include "inicio/cajas-superiores.php";
-
-        }
-      
-      ?>
+     
+        <h1></h1>
 
     </div>
     <!-- row -->
@@ -45,58 +38,10 @@ PÁGINA DE INICIO
     <!-- row -->
     <div class="row">
 
-      
-        
-         <?php
+      <div class="col-lg-12">
 
-         if($_SESSION["perfil"] == "administrador"){
-
-          echo '<div class="col-lg-6">';
-       
-          include "inicio/grafico-ventas.php";
-          include "inicio/productos-mas-vendidos.php";
-
-          echo '</div>';
-
-          }      
-
-        ?>
-
-     
-
-
-        
-         <?php
-
-          if($_SESSION["perfil"] == "administrador"){
-
-            echo ' <div class="col-lg-6">';
-         
-            include "inicio/grafico-visitas.php";
-            include "inicio/ultimos-usuarios.php";
-
-            echo '</div>'; 
-
-          }else{
-
-          echo ' <div class="col-lg-12">';
-       
-          include "inicio/grafico-visitas.php";
-          include "inicio/ultimos-usuarios.php";
-
-          echo '</div>';
-
-          }         
-
-        ?>
-
-       <div class="col-lg-12">
-
-        <?php
-
-        include "inicio/productos-recientes.php";
-
-        ?>
+       <!-- <h1>Bienvenido a CONFIA</h1>-->
+        <img src="vistas/img/servicios/confia.jpg" width="100%" alt="">
 
       </div>
 

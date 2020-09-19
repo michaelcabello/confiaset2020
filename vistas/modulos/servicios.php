@@ -9,7 +9,7 @@ $url = Ruta::ctrRuta();
 
 $ruta = $rutas[0];
 
-//echo $ruta;
+echo $ruta;
 
 ?>
 

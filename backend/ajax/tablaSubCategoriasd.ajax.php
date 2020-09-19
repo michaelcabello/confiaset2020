@@ -108,34 +108,28 @@ class TablaSubCategoriasd{
         
         //no tenia trabajado $cabeceras["portada"], y el datatable me generaba error
 
-  				$datosJson .=  '
-				[
-  				"'.($i+1).'",
-  				"'.$subcategorias[$i]["subcategoria"].'",
-  				"'.$categoria.'",
-  				"'.$subcategorias[$i]["ruta"].'",
-  				"'.$estado.'",
-  				"'.$cabeceras["palabrasClaves"].'",
-  				"'.$imagenPortada.'",
-  				"'.$subcategorias[$i]["titulo1"].'",
-  				"'.$imagen1.'",
-  				"'.$subcategorias[$i]["titulo2"].'",
-  				"'.$subcategorias[$i]["titulo3"].'",
-          "'.$subcategorias[$i]["titulo4"].'",
-  				"'.$acciones.'"
-				],';
+            $data[]=array(
+            "0"=>$i+1,
+            "1"=>$subcategorias[$i]["subcategoria"],
+            "2"=>$categoria,
+            "3"=>$subcategorias[$i]["ruta"],
+            "4"=>$estado,
+            "5"=>$cabeceras["palabrasClaves"],
+            "6"=>$imagenPortada,
+            "7"=>$subcategorias[$i]["titulo1"],
+            "8"=>$imagen1,
+            "9"=>$subcategorias[$i]["titulo2"],
+            "10"=>$subcategorias[$i]["titulo3"],
+            "11"=>$subcategorias[$i]["titulo4"],
+            "12"=>$acciones
+         ); 
 
    			}//fin del for
 
-   			$datosJson =  substr($datosJson, 0, -1);
-   			$datosJson .= '
+   			
 
-   		]
-   	}';
-
-
- echo $datosJson; 
-
+    $results = array("aaData"=>$data);
+    echo json_encode($results);
 
 
   }//fin del metodo mostrarTablaSubCategoria

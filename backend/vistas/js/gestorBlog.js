@@ -89,6 +89,18 @@ $(".fotoBlog").change(function(){
 })
 
 /*=============================================
+MOSTRAR Y OCULATAR BLOG
+=============================================*/
+
+function mostrar(){
+	//location.href = "blogeditar";
+	$(".listablog").hide();
+	$(".editarblog").show();
+
+}
+
+
+/*=============================================
 SELECCIONAR SUBCATEGORÍA
 =============================================*/
 
@@ -276,19 +288,20 @@ $(".guardarBlog").click(function(){
 })
 
 /*=============================================
-EDITAR SUBCATEGORÍAa
+EDITAR BLOG
 =============================================*/
 
-$(".tablaSubCategorias tbody").on("click", ".btnEditarBlog", function(){
+$(".tablaBlog tbody").on("click", ".btnEditarBlog", function(){//inicia funcion btnEditarBlog
 
-	var idSubCategoria = $(this).attr("idSubCategoria");
-	
+	var idBlog = $(this).attr("idBlog");
+
+	//alert(idBlog);
+
 	var datos = new FormData();
-	datos.append("idSubCategoria", idSubCategoria);
+	datos.append("idBlog", idBlog);
 
-	$.ajax({
-
-		url:"ajax/subCategorias.ajax.php",
+	$.ajax({//inicio de ajax para encontrar el producto
+		url:"ajax/blog.ajax.php",
 		method: "POST",
 		data: datos,
 		cache: false,
@@ -296,209 +309,219 @@ $(".tablaSubCategorias tbody").on("click", ".btnEditarBlog", function(){
 		processData: false,
 		dataType: "json",
 		success: function(respuesta){
-					
-			$("#modalEditarSubCategoria .editarIdSubCategoria").val(respuesta[0]["id"]);
-			$("#modalEditarSubCategoria .tituloSubCategoria").val(respuesta[0]["subcategoria"]);
-			$("#modalEditarSubCategoria .rutaSubCategoria").val(respuesta[0]["ruta"]);
+			//console.log("idBlog", idBlog)
+			//console.log("respuesta", respuesta);
+			$(".idBlog").val(respuesta[0]["id"]);	//asigno valor al hiden que guarda el id del blog	
+			//alert("aqui vamos");
+			$(" .tituloPost").val(respuesta[0]["titulo"]);
+			$(" .rutaPost").val(respuesta[0]["ruta"]);
 
 			/*=============================================
-			EDITAR NOMBRE SUBCATEGORÍA Y RUTA
+			TRAEMOS LA CATEGORIAa
 			=============================================*/
 
-			$("#modalEditarSubCategoria .tituloSubCategoria").change(function(){
-
-				$("#modalEditarSubCategoria .rutaSubCategoria").val(limpiarUrl($("#modalEditarSubCategoria .tituloSubCategoria").val()));
-
-			})
-
-			/*=============================================
-			TRAEMOS LA CATEGORIA
-			=============================================*/
-
-			if(respuesta[0]["id_categoria"] != 0){
+			if(respuesta[0]["id_categoriablog"] != 0){
 			
-				var datosCategoria = new FormData();
-				datosCategoria.append("idCategoria", respuesta[0]["id_categoria"]);
+				var datosCategoriablog = new FormData();
+				datosCategoriablog.append("idCategoriablog", respuesta[0]["id_categoriablog"]);
 				
 
 				$.ajax({
 
-						url:"ajax/categorias.ajax.php",
+						url:"ajax/categoriasblog.ajax.php",
 						method: "POST",
-						data: datosCategoria,
+						data: datosCategoriablog,
 						cache: false,
 						contentType: false,
 						processData: false,
 						dataType: "json",
 						success: function(respuesta){
 
-							$("#modalEditarSubCategoria .seleccionarCategoria").val(respuesta["id"]);
-							$("#modalEditarSubCategoria .optionEditarCategoria").html(respuesta["categoria"]);
+							$(".seleccionarCategoriablog").val(respuesta["id"]);
+							$(".optionEditarCategoriablog").html(respuesta["categoria"]);
+
+							
 						}
 
 					})
 
 			}else{
 
-				$("#modalEditarSubCategoria .optionEditarCategoria").html("SIN CATEGORÍA");
+				
+				$(".optionEditarCategoriablog").html("SIN CATEGORÍA");
 
 			}
 
 			/*=============================================
-			TRAEMOS DATOS DE CABECERA
+			TRAEMOS LA SUBCATEGORIA
 			=============================================*/
 
-			var datosCabecera = new FormData();
-			datosCabecera.append("ruta", respuesta[0]["ruta"]);
+			if(respuesta[0]["id_subcategoriablog"] != 0){
+					
+				var datosSubCategoriablog = new FormData();
+				datosSubCategoriablog.append("idSubCategoriablog", respuesta[0]["id_subcategoriablog"]);
 
-			$.ajax({
+				$.ajax({
 
-					url:"ajax/cabeceras.ajax.php",
-					method: "POST",
-					data: datosCabecera,
-					cache: false,
-					contentType: false,
-					processData: false,
-					dataType: "json",
-					success: function(respuesta){
-						// console.log("respuesta", respuesta);
+						url:"ajax/subcategoriasblog.ajax.php",
+						method: "POST",
+						data: datosSubCategoriablog,
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(respuesta){
 
-						/*=============================================
-						CARGAMOS EL ID DE LA CABECERA
-						=============================================*/
+							$(".seleccionarSubCategoriablog").val(respuesta[0]["id"]);
+							$(".optionEditarSubCategoriablog").html(respuesta[0]["subcategoriablog"]);
 
-						$("#modalEditarSubCategoria .editarIdCabecera").val(respuesta["id"]);
 
-						/*=============================================
-						CARGAMOS LA DESCRIPCION
-						=============================================*/
+							//para listar las demas subcategoris de la categoria seleccionada	
+							var datosCategoriablog = new FormData();
+							datosCategoriablog.append("idCategoriablog", respuesta[0]["id_categoriablog"]);	
 
-						$("#modalEditarSubCategoria .descripcionSubCategoria").val(respuesta["descripcion"]);
+							$.ajax({
 
-						/*=============================================
-						CARGAMOS LAS PALABRAS CLAVES
-						=============================================*/	
-						
-						if(respuesta["palabrasClaves"] != null){
+								url:"ajax/subcategoriasblog.ajax.php",
+								method: "POST",
+								data: datosCategoriablog,
+								cache: false,
+								contentType: false,
+								processData: false,
+								dataType: "json",
+								success: function(respuesta){
 
-							$(".editarPalabrasClaves").html('<div class="input-group">'+
-	              
-	                		'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
+									respuesta.forEach(funcionForEach);
 
-							'<input type="text" class="form-control input-lg tagsInput pClavesSubCategoria" value="'+respuesta["palabrasClaves"]+'" data-role="tagsinput" name="pClavesSubCategoria">'+
+							        function funcionForEach(item, index){
 
-							'</div>');
+						    			$(".seleccionarSubCategoriablog").append(
 
-							$("#modalEditarSubCategoria .pClavesSubCategoria").tagsinput('items');
+						    				'<option value="'+item["id"]+'">'+item["subcategoriablog"]+'</option>'
 
-							$(".bootstrap-tagsinput").css({"padding":"11px",
-							   						   "width":"100%",
- 							   						   "border-radius":"1px"})
+						    			)
 
-						}else{
+						    		}
 
-							$(".editarPalabrasClaves").html('<div class="input-group">'+
-	              
-	                		'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
+								}
 
-							'<input type="text" class="form-control input-lg tagsInput pClavesSubCategoria" value="" data-role="tagsinput" name="pClavesSubCategoria">'+
+							})	
 
-							'</div>');
-
-							$("#modalEditarSubCategoria .pClavesSubCategoria").tagsinput('items');
-
-							$(".bootstrap-tagsinput").css({"padding":"11px",
-							   						   "width":"100%",
- 							   						   "border-radius":"1px"})
 
 						}
 
-						/*=============================================
-						CARGAMOS LA IMAGEN DE PORTADA
-						=============================================*/
-
-						$("#modalEditarSubCategoria .previsualizarPortada").attr("src", respuesta["portada"]);
-						$("#modalEditarSubCategoria .antiguaFotoPortada").val(respuesta["portada"]);
-					}
-
-			});
-
-			/*=============================================
-			PREGUNTAMOS SI EXITE OFERTA
-			=============================================*/
-
-			if(respuesta[0]["oferta"] != 0){
-
-				$("#modalEditarSubCategoria .selActivarOferta").val("oferta");
-
-				$("#modalEditarSubCategoria .datosOferta").show();
-				$("#modalEditarSubCategoria .valorOferta").prop("required",true);
-
-				$("#modalEditarSubCategoria #precioOferta").val(respuesta[0]["precioOferta"]);
-				$("#modalEditarSubCategoria #descuentoOferta").val(respuesta[0]["descuentoOferta"]);
-
-				if(respuesta[0]["precioOferta"] != 0){
-
-					$("#modalEditarSubCategoria #precioOferta").prop("readonly",true);
-					$("#modalEditarSubCategoria #descuentoOferta").prop("readonly",false);
-
-				}
-
-				if(respuesta[0]["descuentoOferta"] != 0){
-
-					$("#modalEditarSubCategoria #descuentoOferta").prop("readonly",true);
-					$("#modalEditarSubCategoria #precioOferta").prop("readonly",false);
-
-				}
-	
-				$("#modalEditarSubCategoria .previsualizarOferta").attr("src", respuesta[0]["imgOferta"]);
-
-				$("#modalEditarSubCategoria .antiguaFotoOferta").val(respuesta[0]["imgOferta"]);
-				
-				$("#modalEditarSubCategoria .finOferta").val(respuesta[0]["finOferta"]);						
+					})
 
 			}else{
-
-				$("#modalEditarSubCategoria .selActivarOferta").val("");
-				$("#modalEditarSubCategoria .datosOferta").hide();
-				$("#modalEditarSubCategoria .valorOferta").prop("required",false);
-				$("#modalEditarSubCategoria .previsualizarOferta").attr("src", "vistas/img/ofertas/default/default.jpg");
-				$("#modalEditarSubCategoria .antiguaFotoOferta").val(respuesta[0]["imgOferta"]);
+				
+				$(".optionEditarSubCategoriablog").html("SIN CATEGORÍA");
 
 			}
 
-			/*=============================================
-			CREAR NUEVA OFERTA AL EDITAR
-			=============================================*/
 
-			$("#modalEditarSubCategoria .selActivarOferta").change(function(){
+			$(" .numvisitas").val(respuesta[0]["num_visitas"]);
+			$(" .numestrellas").val(respuesta[0]["estrellas"]);
+			$(" .fecha").val(respuesta[0]["fecha"]);
+			$(" .titlePost").val(respuesta[0]["title"]);
+			$(" .descriptionPost").val(respuesta[0]["description"]);
+			$(" .keywordsPost").val(respuesta[0]["keywords"]);
+			
+			//$(" #descripcioncortaa").val(respuesta[0]["descripcioncorta"]);
+			//$(" #editor1").val(respuesta[0]["descripcionlarga"]);
+			$(" #descripcionCorta").val(respuesta[0]["descripcioncorta"]);
+			//$_POST["descripcioncorta"] = respuesta[0]["descripcioncorta"];
+			$(" .descripcionLarga").val(respuesta[0]["descripcionlarga"]);
+			$(" .videoPost").val(respuesta[0]["video"]);
+		    $(" .previsualizarFotoBlog").attr("src", respuesta[0]["imagen"]);
+			$(" .antiguaFotoBlog").val(respuesta[0]["imagen"]);
+			//$_POST["editor1"] = respuesta[0]["descripcionlarga"];
+			//var data = respuesta[0]["descripcionlarga"];
+			//var html = editor.dataProcessor.toHtml( data );
 
-				activarOferta($(this).val())
+			//alert("hola");
+			//$(" #editor1").value(respuesta[0]["descripcionlarga"]);
+			//editor.dataProcessor.toHtml( data );
+
+			//$(" #editor1 ").val(respuesta[0]["descripcionlarga"]);
+			//$_POST["editor1"];
+			
+			
+
+
+		}//fin del success
+
+	})//fin de inicio de ajax para encontrar el producto
+
+})//finn de inicia funcion btnEditarBlog
+
+
+
+
+$(".guardarCambiosBlog").click(function(){
+    //alert("hola");
+
+    if($(".tituloPost").val() != "" && $(".rutaPost").val() != "" ){
+
+
+    	var id = $(".idBlog").val();
+	    var titulo = $(".tituloPost").val();
+	    var ruta = $(".rutaPost").val();
+
+	    var datosBlog = new FormData();
+
+	    datosBlog.append("id", id);
+	    datosBlog.append("titulo", titulo);
+	    datosBlog.append("ruta", ruta);
+
+
+	    	$.ajax({
+			url:"ajax/blog.ajax.php",
+			method: "POST",
+			data: datosBlog,
+			cache: false,
+			contentType: false,
+			processData: false,
+				beforeSend: function(){
+
+
+					swal({
+						  type: "success",
+						  title: "El producto ha sido cambiado correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "inicio";
+
+							}
+						})
+
+				},
+				success: function(respuesta){
+										
+					if(respuesta == "ok"){
+						//aqui activaria mi java script	
+						swal({
+						  type: "success",
+						  title: "El producto ha sido cambiado correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "inicio";
+
+							}
+						})
+					}		
+
+				},
 
 			})
 
-			$("#modalEditarSubCategoria .valorOferta").change(function(){
+    }
 
-				if($(this).attr("id") == "precioOferta"){
-
-					$("#modalEditarSubCategoria #precioOferta").prop("readonly",true);
-					$("#modalEditarSubCategoria #descuentoOferta").prop("readonly",false);
-					$("#modalEditarSubCategoria #descuentoOferta").val(0);
-
-				}
-
-				if($(this).attr("id") == "descuentoOferta"){
-
-					$("#modalEditarSubCategoria #descuentoOferta").prop("readonly",true);
-					$("#modalEditarSubCategoria #precioOferta").prop("readonly",false);
-					$("#modalEditarSubCategoria #precioOferta").val(0);
-
-				}		
-
-			})
-
-		}
-
-	});
 
 })
+

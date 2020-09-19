@@ -179,19 +179,46 @@ MODAL AGREGAR SUBCATEGORÍA
 
             </div>
 
+
+            <!--=====================================
+            ENTRADA PARA EL ORDEN
+            ======================================-->
+            
+            <div class="form-group">
+              
+                   <div class="col-md-12 col-xs-12">
+  
+                      <div class="panel">ORDEN DE MUESTRA</div>
+                
+                      <div class="input-group">
+                    
+                        <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
+
+                        <input type="number" class="form-control input-lg entrega" min="0" value="0">
+
+                      </div>
+
+                  </div>
+
+             </div>
+
+
+<br><br><br>
             <!--=====================================
             ENTRADA PARA SUBIR LA FOTO DE PORTADA
             ======================================-->
 
             <div class="form-group">
-              
-              <div class="panel">SUBIR FOTO DE BANER</div>
+             
+              <br> <br> <br>
+                  <div class="panel">SUBIR FOTO DE BANER</div>
 
-              <input type="file" class="fotoPortadad" name="fotoPortadad">
+                     <input type="file" class="fotoPortadad" name="fotoPortadad">
 
-              <p class="help-block">Tamaño recomendado 1610px * 250px <br> Peso máximo de la foto 2MB</p>
+                      <p class="help-block">Tamaño recomendado 1610px * 250px <br> Peso máximo de la foto 2MB</p>
 
-              <img src="vistas/img/cabeceras/default/default.jpg" class="img-thumbnail previsualizarPortadad" width="100%">
+                       <img src="vistas/img/cabeceras/default/default.jpg" class="img-thumbnail previsualizarPortadad" width="100%">
+           
 
             </div>
 
@@ -395,7 +422,7 @@ MODAL EDITAR SUBCATEGORÍA
             </div>
 
             <!--=====================================
-            ENTRADA PARA EDITAR LA FOTO DE PORTADA
+            ENTRADA PARA EDITAR LA FOTO DE BANER
             ======================================-->
 
             <div class="form-group">
@@ -403,7 +430,7 @@ MODAL EDITAR SUBCATEGORÍA
               <div class="panel">SUBIR FOTO PORTADA</div>
 
               <input type="file" class="fotoPortadad" name="fotoPortadad">
-              <input type="hidden" class="antiguaFotoPortada" name="antiguaFotoPortada">
+              <input type="hidden" class="antiguaFotoPortadad" name="antiguaFotoPortadad">
 
               <p class="help-block">Tamaño recomendado 1610px * 250px <br> Peso máximo de la foto 2MB</p>
 
@@ -463,11 +490,6 @@ MODAL EDITAR SUBCATEGORÍA
 
 
             </div>
-
-
-
-
-
 
        
   

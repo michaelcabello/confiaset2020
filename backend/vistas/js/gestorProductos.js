@@ -448,7 +448,7 @@ $("#modalCrearProducto .valorOferta").change(function(){
 })
 
 /*=============================================
-SUBIENDO LA FOTO DE LA OFERTA
+SUBIENDO LA FOTO DE LA OFERTAb
 =============================================*/
 
 var imagenOferta = null;
@@ -881,7 +881,7 @@ $('.tablaProductos tbody').on("click", ".btnEditarProducto", function(){
 			}
 
 			/*=============================================
-			TRAEMOS LA CATEGORIA
+			TRAEMOS LA CATEGORIAc
 			=============================================*/
 
 			if(respuesta[0]["id_categoria"] != 0){

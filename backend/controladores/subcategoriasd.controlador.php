@@ -236,7 +236,7 @@ class ControladorSubCategoriasd{
 				VALIDAR IMAGEN PORTADA BANNER
 				=============================================*/
 
-				$rutaPortada = $_POST["antiguaFotoPortada"];
+				$rutaPortada = $_POST["antiguaFotoPortadad"];
 
 				if(isset($_FILES["fotoPortadad"]["tmp_name"]) && !empty($_FILES["fotoPortadad"]["tmp_name"])){
 			
@@ -244,13 +244,13 @@ class ControladorSubCategoriasd{
 					BORRAMOS ANTIGUA FOTO PORTADA
 					=============================================*/
 
-					unlink($_POST["antiguaFotoPortada"]);
+					unlink($_POST["antiguaFotoPortadad"]);
 
 					/*=============================================
 					DEFINIMOS LAS MEDIDAS
 					=============================================*/
 
-					list($ancho, $alto) = getimagesize($_FILES["fotoPortada"]["tmp_name"]);	
+					list($ancho, $alto) = getimagesize($_FILES["fotoPortadad"]["tmp_name"]);	
 
 					$nuevoAncho = 1610;
 					$nuevoAlto = 250;
@@ -260,7 +260,7 @@ class ControladorSubCategoriasd{
 					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
 					=============================================*/
 
-					if($_FILES["fotoPortada"]["type"] == "image/jpeg"){
+					if($_FILES["fotoPortadad"]["type"] == "image/jpeg"){
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -270,7 +270,7 @@ class ControladorSubCategoriasd{
 
 						$rutaPortada = "vistas/img/cabeceras/".$_POST["rutaSubCategoriad"].".jpg";
 
-						$origen = imagecreatefromjpeg($_FILES["fotoPortada"]["tmp_name"]);						
+						$origen = imagecreatefromjpeg($_FILES["fotoPortadad"]["tmp_name"]);						
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -280,7 +280,7 @@ class ControladorSubCategoriasd{
 
 					}
 
-					if($_FILES["fotoPortada"]["type"] == "image/png"){
+					if($_FILES["fotoPortadad"]["type"] == "image/png"){
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -290,7 +290,7 @@ class ControladorSubCategoriasd{
 
 						$rutaPortada = "vistas/img/cabeceras/".$_POST["rutaSubCategoriad"].".png";
 
-						$origen = imagecreatefrompng($_FILES["fotoPortada"]["tmp_name"]);						
+						$origen = imagecreatefrompng($_FILES["fotoPortadad"]["tmp_name"]);						
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -312,7 +312,7 @@ class ControladorSubCategoriasd{
 				=============================================*/
 
 				$rutatitulo1 = $_POST["antiguaFotoTitulo1"];
-
+						
 				if(isset($_FILES["fotoTitulo1"]["tmp_name"]) && !empty($_FILES["fotoTitulo1"]["tmp_name"])){
 			
 					/*=============================================
@@ -350,7 +350,7 @@ class ControladorSubCategoriasd{
 
 						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-						imagejpeg($destino, $rutaPortada);
+						imagejpeg($destino, $rutatitulo1);
 
 					}
 

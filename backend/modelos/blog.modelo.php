@@ -79,6 +79,33 @@ class ModeloBlog{
 	}
 
 
+	static public function mdlEditarBlog($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET titulo = :titulo, ruta = :ruta WHERE id = :id");
+
+		$stmt->bindParam(":titulo", $datos["titulo"], PDO::PARAM_STR);
+		$stmt->bindParam(":ruta", $datos["ruta"], PDO::PARAM_STR);
+		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+
+
+
+
 
 
 

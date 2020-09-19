@@ -45,7 +45,22 @@ class AjaxCategoriasblog{
 
   }
 
+ /*=============================================
+  EDITAR CATEGORIABLOG
+  =============================================*/ 
 
+  public $idCategoriablog;
+
+  public function ajaxEditarCategoriablog(){
+
+    $item = "id";
+    $valor = $this->idCategoriablog;
+
+    $respuesta = ControladorCategoriasblog::ctrMostrarCategoriasblog($item, $valor);
+
+    echo json_encode($respuesta);
+
+  }
 
 
 
@@ -69,7 +84,7 @@ if(isset($_POST["activarCategoriablog"])){
 }
 
 /*=============================================
-VALIDAR NO REPETIR CATEGORÍA
+VALIDAR NO REPETIR CATEGORÍAf
 =============================================*/
 
 if(isset( $_POST["validarCategoriablog"])){
@@ -77,6 +92,17 @@ if(isset( $_POST["validarCategoriablog"])){
   $valCategoriablog = new AjaxCategoriasblog();
   $valCategoriablog -> validarCategoriablog = $_POST["validarCategoriablog"];
   $valCategoriablog -> ajaxValidarCategoriablog();
+
+}
+
+/*=============================================
+EDITAR CATEGORIA BLOG
+=============================================*/
+if(isset($_POST["idCategoriablog"])){
+
+  $editar = new AjaxCategoriasblog();
+  $editar -> idCategoriablog = $_POST["idCategoriablog"];
+  $editar -> ajaxEditarCategoriablog();
 
 }
 

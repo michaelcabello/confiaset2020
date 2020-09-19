@@ -1,7 +1,7 @@
 /*=============================================
 CARGAR LA TABLA DINÁMICA DE SUBCATEGORÍAS
 =============================================*/
-
+/*
  $.ajax({
 
  	url:"ajax/tablaSubCategorias.ajax.php",
@@ -9,7 +9,7 @@ CARGAR LA TABLA DINÁMICA DE SUBCATEGORÍAS
  		console.log("respuesta", respuesta);
  	}
  })
-
+*/
 
 
 
@@ -49,7 +49,7 @@ $(".seleccionarCategoriaf").change(function(){
 	    processData: false,
 	    //dataType: "json",
 	    success:function(respuesta){
-	    	console.log("respuesta", respuesta);
+	    	//console.log("respuesta", respuesta);
 	    	//var resp = respuesta;
 	    	 //echo $datosJson; 
 	    	 //$('#tablaSubCategorias').DataTable();     	 

@@ -159,6 +159,18 @@ class ControladorBlog{
 	}//fin del metodo ctrCrearBlog
 
 
+    static public function ctrEditarBlog($datos){
+
+				$datosBlog = array("id"=>$datos["id"],
+							   "titulo"=>$datos["titulo"],
+			  			         "ruta"=>$datos["ruta"]);
+
+				$respuesta = ModeloBlog::mdlEditarBlog("blog", $datosBlog);
+
+				return $respuesta;
+
+
+    }
 
 /*	static public function ctrCrearBlog($datos){
 
