@@ -72,7 +72,7 @@ $social = ControladorPlantilla::ctrEstiloPlantilla();
                                         <div class="row">
                                            <?php
                                                 $item = "id_categoria";
-                                                $valor = 7;
+                                                $valor = 1;
                                                 $i=0;
                                                 $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
                                                 foreach ($subcategorias as $key => $value) {
@@ -105,7 +105,7 @@ $social = ControladorPlantilla::ctrEstiloPlantilla();
                                         <div class="row">
                                            <?php
                                                 $item = "id_categoria";
-                                                $valor = 8;
+                                                $valor = 2;
                                                 $i=0;
                                                 $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
                                                 foreach ($subcategorias as $key => $value) {
@@ -138,7 +138,7 @@ $social = ControladorPlantilla::ctrEstiloPlantilla();
                                         <div class="row">
                                            <?php
                                                 $item = "id_categoria";
-                                                $valor = 9;
+                                                $valor = 3;
                                                 $i=0;
                                                 $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
                                                 foreach ($subcategorias as $key => $value) {
@@ -171,7 +171,7 @@ $social = ControladorPlantilla::ctrEstiloPlantilla();
 
                                 <?php
                                     $item = "id_categoria";
-                                    $valor = 10;
+                                    $valor = 5;
                                                 $i=0;
                                                 $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
                                                 foreach ($subcategorias as $key => $value) {

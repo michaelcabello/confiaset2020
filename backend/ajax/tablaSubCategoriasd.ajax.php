@@ -114,14 +114,15 @@ class TablaSubCategoriasd{
             "2"=>$categoria,
             "3"=>$subcategorias[$i]["ruta"],
             "4"=>$estado,
-            "5"=>$cabeceras["palabrasClaves"],
-            "6"=>$imagenPortada,
-            "7"=>$subcategorias[$i]["titulo1"],
-            "8"=>$imagen1,
-            "9"=>$subcategorias[$i]["titulo2"],
-            "10"=>$subcategorias[$i]["titulo3"],
-            "11"=>$subcategorias[$i]["titulo4"],
-            "12"=>$acciones
+            "5"=>$subcategorias[$i]["orden"],
+            "6"=>$cabeceras["palabrasClaves"],
+            "7"=>$imagenPortada,
+            "8"=>$subcategorias[$i]["titulo1"],
+            "9"=>$imagen1,
+            "10"=>$subcategorias[$i]["titulo2"],
+            "11"=>$subcategorias[$i]["titulo3"],
+            "12"=>$subcategorias[$i]["titulo4"],
+            "13"=>$acciones
          ); 
 
    			}//fin del for

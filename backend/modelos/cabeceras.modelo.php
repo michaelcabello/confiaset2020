@@ -76,7 +76,7 @@ class ModeloCabeceras{
 
 		$stmt->bindParam(":ruta", $datos["ruta"], PDO::PARAM_STR);
 		$stmt->bindParam(":titulo", $datos["titulo"], PDO::PARAM_STR);
-		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":descripcion", $datos["descripcion1"], PDO::PARAM_STR);
 		$stmt->bindParam(":palabrasClaves", $datos["palabrasClaves"], PDO::PARAM_STR);
 		$stmt->bindParam(":portada", $datos["imgPortada"], PDO::PARAM_STR);
 		$stmt -> bindParam(":id", $datos["idCabecera"], PDO::PARAM_INT);

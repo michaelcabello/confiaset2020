@@ -227,43 +227,159 @@ $(".fotoTitulo1").change(function(){
   	}
 })
 
+
 /*=============================================
-REVISAR SI LA RUTA YA EXISTE
+SUBIENDO LA FOTO DE TITULO 2
 =============================================*/
 
-$(".validarSubCategoriad").change(function(){
+$(".fotoTitulo2").change(function(){
 
-	$(".alert").remove();
+	var imagen = this.files[0];
+	
+	/*=============================================
+  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
+  	=============================================*/
 
-	var subCategoria = $(this).val();
+  	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
 
-	var datos = new FormData();
-	datos.append("validarSubCategoria", subCategoria);
+  		$(".fotoTitulo2").val("");
 
-	 $.ajax({
-	    url:"ajax/subCategoriasd.ajax.php",
-	    method:"POST",
-	    data: datos,
-	    cache: false,
-	    contentType: false,
-	    processData: false,
-	    dataType: "json",
-	    success:function(respuesta){
-	    	
-	    	// console.log("respuesta", respuesta);
-	    	
-	    	if(respuesta.length != 0){
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen debe estar en formato JPG o PNG!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
 
-	    		$(".validarSubCategoriad").parent().after('<div class="alert alert-warning">Esta Subcategoría ya existe en la base de datos</div>');
+  	}else if(imagen["size"] > 2000000){
 
-	    		$(".validarSubCategoriad").val("");
+  		$(".fotoTitulo2").val("");
 
-	    	}
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen no debe pesar más de 2MB!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
 
-	    }
+  	}else{
 
-	})
+  		var datosImagen = new FileReader;
+  		datosImagen.readAsDataURL(imagen);
+
+  		$(datosImagen).on("load", function(event){
+
+  			var rutaImagen = event.target.result;
+
+  			$(".previsualizarTitulo2").attr("src", rutaImagen);
+
+  		})
+
+  	}
 })
+
+
+/*=============================================
+SUBIENDO LA FOTO DE TITULO 3
+=============================================*/
+
+$(".fotoTitulo3").change(function(){
+
+	var imagen = this.files[0];
+	
+	/*=============================================
+  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
+  	=============================================*/
+
+  	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
+
+  		$(".fotoTitulo3").val("");
+
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen debe estar en formato JPG o PNG!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
+
+  	}else if(imagen["size"] > 2000000){
+
+  		$(".fotoTitulo3").val("");
+
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen no debe pesar más de 2MB!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
+
+  	}else{
+
+  		var datosImagen = new FileReader;
+  		datosImagen.readAsDataURL(imagen);
+
+  		$(datosImagen).on("load", function(event){
+
+  			var rutaImagen = event.target.result;
+
+  			$(".previsualizarTitulo3").attr("src", rutaImagen);
+
+  		})
+
+  	}
+})
+
+/*=============================================
+SUBIENDO LA FOTO DE TITULO 4
+=============================================*/
+
+$(".fotoTitulo4").change(function(){
+
+	var imagen = this.files[0];
+	
+	/*=============================================
+  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
+  	=============================================*/
+
+  	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
+
+  		$(".fotoTitulo4").val("");
+
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen debe estar en formato JPG o PNG!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
+
+  	}else if(imagen["size"] > 2000000){
+
+  		$(".fotoTitulo4").val("");
+
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen no debe pesar más de 2MB!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
+
+  	}else{
+
+  		var datosImagen = new FileReader;
+  		datosImagen.readAsDataURL(imagen);
+
+  		$(datosImagen).on("load", function(event){
+
+  			var rutaImagen = event.target.result;
+
+  			$(".previsualizarTitulo4").attr("src", rutaImagen);
+
+  		})
+
+  	}
+})
+
+
 
 
 /*=============================================
@@ -330,7 +446,7 @@ $(".tablaSubCategoriasd tbody").on("click", ".btnEditarSubCategoria", function()
 		
 			$("#modalEditarSubCategoria .tituloSubCategoriad").val(respuesta[0]["subcategoria"]);//llena la caja de texto de name="editarTituloSubCategoriad" para llenar usa la clase .tituloSubCategoriad
 			$("#modalEditarSubCategoria .rutaSubCategoriad").val(respuesta[0]["ruta"]);
-
+			$("#modalEditarSubCategoria .orden").val(respuesta[0]["orden"]);
 			/*=============================================
 			EDITAR NOMBRE SUBCATEGORÍA Y RUTA
 			=============================================*/
@@ -411,11 +527,11 @@ $(".tablaSubCategoriasd tbody").on("click", ".btnEditarSubCategoria", function()
 						
 						if(respuesta["palabrasClaves"] != null){
 
-							$(".editarPalabrasClaves").html('<div class="input-group">'+
+							$(".editarPalabrasClavesd").html('<div class="input-group">'+
 	              
 	                		'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
 
-							'<input type="text" class="form-control input-lg tagsInput pClavesSubCategoria" value="'+respuesta["palabrasClaves"]+'" data-role="tagsinput" name="pClavesSubCategoria">'+
+							'<input type="text" class="form-control input-lg tagsInput pClavesSubCategoria" value="'+respuesta["palabrasClaves"]+'" data-role="tagsinput" name="pClavesSubCategoriad">'+
 
 							'</div>');
 
@@ -427,11 +543,11 @@ $(".tablaSubCategoriasd tbody").on("click", ".btnEditarSubCategoria", function()
 
 						}else{
 
-							$(".editarPalabrasClaves").html('<div class="input-group">'+
+							$(".editarPalabrasClavesd").html('<div class="input-group">'+
 	              
 	                		'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
 
-							'<input type="text" class="form-control input-lg tagsInput pClavesSubCategoria" value="" data-role="tagsinput" name="pClavesSubCategoria">'+
+							'<input type="text" class="form-control input-lg tagsInput pClavesSubCategoria" value="" data-role="tagsinput" name="pClavesSubCategoriad">'+
 
 							'</div>');
 
@@ -465,6 +581,24 @@ $(".tablaSubCategoriasd tbody").on("click", ".btnEditarSubCategoria", function()
 
 			$("#modalEditarSubCategoria .titulo1").val(respuesta[0]["titulo1"]);
 			$("#modalEditarSubCategoria .descripcionTitulo1").val(respuesta[0]["descripcion1"]);
+
+			$("#modalEditarSubCategoria .previsualizarTitulo2").attr("src", respuesta[0]["imagen2"]);
+            $("#modalEditarSubCategoria .antiguaFotoTitulo2").val(respuesta[0]["imagen2"]);
+
+			$("#modalEditarSubCategoria .titulo2").val(respuesta[0]["titulo2"]);
+			$("#modalEditarSubCategoria .descripcionTitulo2").val(respuesta[0]["descripcion2"]);
+
+			$("#modalEditarSubCategoria .previsualizarTitulo3").attr("src", respuesta[0]["imagen3"]);
+            $("#modalEditarSubCategoria .antiguaFotoTitulo3").val(respuesta[0]["imagen3"]);
+
+			$("#modalEditarSubCategoria .titulo3").val(respuesta[0]["titulo3"]);
+			$("#modalEditarSubCategoria .descripcionTitulo3").val(respuesta[0]["descripcion3"]);
+
+			$("#modalEditarSubCategoria .previsualizarTitulo4").attr("src", respuesta[0]["imagen4"]);
+            $("#modalEditarSubCategoria .antiguaFotoTitulo4").val(respuesta[0]["imagen4"]);
+
+			$("#modalEditarSubCategoria .titulo4").val(respuesta[0]["titulo4"]);
+			$("#modalEditarSubCategoria .descripcionTitulo4").val(respuesta[0]["descripcion4"]);
 
 
 		}

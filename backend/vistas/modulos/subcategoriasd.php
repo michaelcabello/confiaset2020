@@ -43,6 +43,7 @@
                <th>Categoria</th>
                <th>Ruta</th>
                <th>Estado</th>
+               <th>Orden</th>
                <th>Palabras claves</th>
                <th>Portada</th>
                <th>titulo1</th>
@@ -186,7 +187,7 @@ MODAL AGREGAR SUBCATEGORÍA
             
             <div class="form-group">
               
-                   <div class="col-md-12 col-xs-12">
+                  <div class="col-md-12 col-xs-12">
   
                       <div class="panel">ORDEN DE MUESTRA</div>
                 
@@ -194,7 +195,7 @@ MODAL AGREGAR SUBCATEGORÍA
                     
                         <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
 
-                        <input type="number" class="form-control input-lg entrega" min="0" value="0">
+                        <input type="number" class="form-control input-lg orden" name="orden" min="0" value="0">
 
                       </div>
 
@@ -211,15 +212,13 @@ MODAL AGREGAR SUBCATEGORÍA
             <div class="form-group">
              
               <br> <br> <br>
-                  <div class="panel">SUBIR FOTO DE BANER</div>
+                <div class="panel">SUBIR FOTO DE BANER</div>
 
-                     <input type="file" class="fotoPortadad" name="fotoPortadad">
+                    <input type="file" class="fotoPortadad" name="fotoPortadad">
 
-                      <p class="help-block">Tamaño recomendado 1610px * 250px <br> Peso máximo de la foto 2MB</p>
+                     <p class="help-block">Tamaño recomendado 1610px * 250px <br> Peso máximo de la foto 2MB</p>
 
-                       <img src="vistas/img/cabeceras/default/default.jpg" class="img-thumbnail previsualizarPortadad" width="100%">
-           
-
+                     <img src="vistas/img/cabeceras/default/default.jpg" class="img-thumbnail previsualizarPortadad" width="100%">     
             </div>
 
 
@@ -249,7 +248,7 @@ MODAL AGREGAR SUBCATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
 
-                <textarea type="text" class="form-control input-lg"  name="descripcionTitulo1" rows="3" placeholder="Ingresar descripción de titulo1" required></textarea>
+                <textarea type="text" class="form-control input-lg"  name="descripcionTitulo1" rows="5" placeholder="Ingresar descripción de titulo1" required></textarea>
 
               </div>
 
@@ -272,9 +271,156 @@ MODAL AGREGAR SUBCATEGORÍA
 
             </div>
 
+           
+
             <!--=====================================
-            ENTRADA PARA LA OFERTA
+            ENTRADA PARA EL TITULO 2
             ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg validarTitulo2 titulo2" name="titulo2" placeholder="Ingresar titulo2" required>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA DESCRIPCION 2
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
+
+                <textarea type="text" class="form-control input-lg"  name="descripcionTitulo2" rows="5" placeholder="Ingresar descripción de titulo2" required></textarea>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA SUBIR LA FOTO DE titulo 2
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO DE TITULO 2</div>
+
+              <input type="file" class="fotoTitulo2" name="fotoTitulo2">
+
+              <p class="help-block">Tamaño recomendado 900px * 800px <br> Peso máximo de la foto 2MB</p>
+
+              <img src="vistas/img/servicios/titulo2/default/default.jpg" class="img-thumbnail previsualizarTitulo2">
+
+
+            </div>
+
+
+           <!--=====================================
+            ENTRADA PARA EL TITULO 3
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg validarTitulo3 titulo3" name="titulo3" placeholder="Ingresar titulo3" required>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA DESCRIPCION 3
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
+
+                <textarea type="text" class="form-control input-lg"  name="descripcionTitulo3" rows="5" placeholder="Ingresar descripción de titulo3" required></textarea>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA SUBIR LA FOTO DE titulo 3
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO DE TITULO 3</div>
+
+              <input type="file" class="fotoTitulo3" name="fotoTitulo3">
+
+              <p class="help-block">Tamaño recomendado 900px * 800px <br> Peso máximo de la foto 2MB</p>
+
+              <img src="vistas/img/servicios/titulo3/default/default.jpg" class="img-thumbnail previsualizarTitulo3">
+
+
+            </div>
+
+
+            <!--=====================================
+            ENTRADA PARA EL TITULO 4
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg validarTitulo4 titulo4" name="titulo4" placeholder="Ingresar titulo4" required>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA DESCRIPCION 4
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
+
+                <textarea type="text" class="form-control input-lg"  name="descripcionTitulo4" rows="5" placeholder="Ingresar descripción de titulo4" required></textarea>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA SUBIR LA FOTO DE titulo 4
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO DE TITULO 4</div>
+
+              <input type="file" class="fotoTitulo4" name="fotoTitulo4">
+
+              <p class="help-block">Tamaño recomendado 900px * 800px <br> Peso máximo de la foto 2MB</p>
+
+              <img src="vistas/img/servicios/titulo4/default/default.jpg" class="img-thumbnail previsualizarTitulo4">
+
+
+            </div>
             
            
 
@@ -416,17 +562,42 @@ MODAL EDITAR SUBCATEGORÍA
             <!--=====================================
             ENTRADA PARA EDITAR LAS PALABRAS CLAVES
             ======================================-->          
-            <div class="form-group editarPalabrasClaves">
+            <div class="form-group editarPalabrasClavesd">
+                      
             
 
             </div>
 
+
+
+            <!--=====================================
+            ENTRADA PARA EL ORDEN
+            ======================================-->
+            
+            <div class="form-group">
+              
+                  <div class="col-md-12 col-xs-12">
+  
+                      <div class="panel">ORDEN DE MUESTRA</div>
+                
+                      <div class="input-group">
+                    
+                        <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
+
+                        <input type="number" class="form-control input-lg orden" name="orden" min="0" >
+
+                      </div>
+
+                  </div>
+
+             </div>
+
             <!--=====================================
             ENTRADA PARA EDITAR LA FOTO DE BANER
             ======================================-->
+<br><br>
 
             <div class="form-group">
-              
               <div class="panel">SUBIR FOTO PORTADA</div>
 
               <input type="file" class="fotoPortadad" name="fotoPortadad">
@@ -467,7 +638,7 @@ MODAL EDITAR SUBCATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
 
-                <textarea type="text" class="form-control input-lg descripcionTitulo1"  name="descripcionTitulo1" rows="3" placeholder="Ingresar descripción de titulo1" required></textarea>
+                <textarea type="text" class="form-control input-lg descripcionTitulo1"  name="descripcionTitulo1" rows="5" placeholder="Ingresar descripción de titulo1" required></textarea>
 
               </div>
 
@@ -490,6 +661,165 @@ MODAL EDITAR SUBCATEGORÍA
 
 
             </div>
+
+
+
+            <!--=====================================
+            ENTRADA PARA EL TITULO 2
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg validarTitulo2 titulo2" name="titulo2" placeholder="Ingresar titulo2" required>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA DESCRIPCION 2
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
+
+                <textarea type="text" class="form-control input-lg descripcionTitulo2"  name="descripcionTitulo2" rows="5" placeholder="Ingresar descripción de titulo2" required></textarea>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA SUBIR LA FOTO DE titulo 2
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO DE TITULO 2</div>
+
+              <input type="file" class="fotoTitulo2" name="fotoTitulo2">
+              <input type="hidden" class="antiguaFotoTitulo2" name="antiguaFotoTitulo2">
+
+              <p class="help-block">Tamaño recomendado 900px * 800px <br> Peso máximo de la foto 2MB</p>
+
+              <img src="vistas/img/servicios/titulo2/default/default.jpg" class="img-thumbnail previsualizarTitulo2">
+
+
+            </div>
+
+
+           <!--=====================================
+            ENTRADA PARA EL TITULO 3
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg validarTitulo3 titulo3" name="titulo3" placeholder="Ingresar titulo3" required>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA DESCRIPCION 3
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
+
+                <textarea type="text" class="form-control input-lg descripcionTitulo3"  name="descripcionTitulo3" rows="5" placeholder="Ingresar descripción de titulo3" required></textarea>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA SUBIR LA FOTO DE titulo 3
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO DE TITULO 3</div>
+
+              <input type="file" class="fotoTitulo3" name="fotoTitulo3">
+              <input type="hidden" class="antiguaFotoTitulo3" name="antiguaFotoTitulo3">
+
+              <p class="help-block">Tamaño recomendado 900px * 800px <br> Peso máximo de la foto 2MB</p>
+
+              <img src="vistas/img/servicios/titulo3/default/default.jpg" class="img-thumbnail previsualizarTitulo3">
+
+
+            </div>
+
+
+            <!--=====================================
+            ENTRADA PARA EL TITULO 4
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg validarTitulo4 titulo4" name="titulo4" placeholder="Ingresar titulo4" required>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA LA DESCRIPCION 4
+            ======================================-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
+
+                <textarea type="text" class="form-control input-lg descripcionTitulo4"  name="descripcionTitulo4" rows="5" placeholder="Ingresar descripción de titulo4" required></textarea>
+
+              </div>
+
+            </div>
+
+            <!--=====================================
+            ENTRADA PARA SUBIR LA FOTO DE titulo 4
+            ======================================-->
+
+            <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO DE TITULO 4</div>
+
+              <input type="file" class="fotoTitulo4" name="fotoTitulo4">
+              <input type="hidden" class="antiguaFotoTitulo4" name="antiguaFotoTitulo4">
+
+              <p class="help-block">Tamaño recomendado 900px * 800px <br> Peso máximo de la foto 2MB</p>
+
+              <img src="vistas/img/servicios/titulo4/default/default.jpg" class="img-thumbnail previsualizarTitulo4">
+
+
+            </div>
+
+
+
+
+
 
        
   
